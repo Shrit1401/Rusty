@@ -90,6 +90,121 @@
 //     // capacity
 // }
 
+// fn main() {
+//     // borrowing
+
+// }
+
+// struct Rect {
+//     width: u32,
+//     height: u32,
+// }
+
+// // impl Rect {
+// //     fn area(&self) -> u32 {
+// //         return self.width * self.height;
+// //     }
+// //     fn perimeter(&self) -> u32 {
+// //         return 2 * (self.width + self.height);
+// //     }
+// // }
+// structs
+// fn main() {
+//     // struct User {
+//     //     id: i32,
+//     //     name: String,
+//     //     email: String,
+//     //     age: i32,
+//     // }
+
+//     // let mut user1 = User {
+//     //     id: 1,
+//     //     name: String::from("Shrit"),
+//     //     email: String::from("shrit@gmail.com"),
+//     //     age: 20,
+//     // };
+
+//     // user1.id = 2;
+
+//     // println!("{}", user1.id);
+//     // println!("{}", user1.name);
+//     // println!("{}", user1.email);
+//     // println!("{}", user1.age);
+
+//     let rect1 = Rect {
+//         width: 10,
+//         height: 20,
+//     };
+
+//     println!("Area: {}", rect1.area());
+//     println!("Perimeter: {}", rect1.perimeter());
+// }
+
+// enums
+// enum Dir {
+//     North,
+//     South,
+//     East,
+//     West,
+// }
+
+// fn main() {
+//     let dir = Dir::North;
+// }
+
+// pattern matching
+
+// enum Shape {
+//     Circle(f64),
+//     Square(f64),
+//     Rectangle(f64, f64),
+// }
+
+// fn main() {
+//     let shape = Shape::Circle(10.0);
+//     match shape {
+//         Shape::Circle(radius) => println!("Circle with radius {}", radius),
+//         Shape::Square(side) => println!("Square with side {}", side),
+//         Shape::Rectangle(width, height) => {
+//             println!("Rectangle with width {} and height {}", width, height)
+//         }
+//     }
+// }
+
+// // error management
+// #[derive(Debug)]
+// struct Point<T> {
+//     x: T,
+//     y: T,
+// }
+
+// fn main() {
+//     let point = Point { x: 10, y: 20 };
+//     println!("{}", point.x);
+
+//     let point2 = Point { x: 10.0, y: 20.0 };
+//     println!("{}", point2.x);
+// }
+
+// rust doesn't have a null : (
+
 fn main() {
-    // borrowing
+    let my_string = String::from("raman");
+    match find_second_a(my_string) {
+        Some(index) => println!("The letter 'a' is found at index: {}", index),
+        None => println!("The letter 'a' is not found in the string."),
+    }
+}
+
+fn find_second_a(s: String) -> Option<i32> {
+    let mut count = 0;
+    for (index, character) in s.chars().enumerate() {
+        if character == 'a' {
+            count += 1;
+            if count == 2 {
+                return Some(index as i32);
+            }
+        }
+    }
+    return None;
 }
